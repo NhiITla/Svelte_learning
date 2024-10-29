@@ -1,29 +1,60 @@
+https://svelte.dev/docs/kit/auth
+
+- Creating your first Svelte app:
+  npm create svelte@latest myapp
+  cd myapp
+  npm install
+  npm run dev
+
 - What is Svelte:
   is JS component framework 
   unlike React and Vue, Svelte does not use a virtual DOM
   its compiles code into tiny, pure Vanilla JS
   -> the code works much faster from the beginning make a lighter and more user-friendly
+
+- Compare Svelte vs React.js vs Angular vs Vue:
+  Svelte: framework
 - About SvelteKit:
   Svelte is a component framework
   SvelteKit is an app framework that solve the tricky problem of building something production-ready
   SvelteKit provide features such as:
     Routing, Server-side rendering, Data fetching, Optimized production builds, App deployment
-
-    
-
 - How Svelte work:
   your code -> Svelte (compile code, ship) > Browser
   package.json : dependencies, svelte:3.0.0
   rollup: js code
   src: code > main.js > import App from App.svelte
-
-
 - COMMAND:
-npm install
-npm run dev
+  npm install
+  npm run dev
 - INSTALL:  
             - Material icon + Svelte
             - node js
-
 - Ignore node_modules:
   - create 
+- Different way to add component:
+  + public > index.html :
+    add # id = Header to body of index.html
+    import App to main.js > querySelector("#app")
+
+  +create header = new Header -> target: 
+      document --> but index will affect to the whole component
+      attach to main.js  by target to different place
+- Different App Types & Deployment Options:
+  1. SSR:
+    via Sapper
+    Pre-renders every page "on-the-fly"
+    Great for SEO
+    ->required Node.js Server
+
+  2. Static App:
+    SPA -> Pre-rendered App
+    Svelte-only - via Sapper
+    Client-side rendering > build-time rendering
+    small footprint
+    -> required static host
+
+  3. Embedded / Widget-style:
+    Svelte-only
+    Manages part of existing HTML pages
+    import file
