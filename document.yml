@@ -18,4 +18,12 @@
   src: code > main.js > import App from App.svelte
 
 
-- Set up: Material icon + Svelte
+- COMMAND:
+npm install
+npm run dev
+- INSTALL:  
+            - Material icon + Svelte
+            - node js
+
+- Ignore node_modules:
+  - create 

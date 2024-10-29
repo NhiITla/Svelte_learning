@@ -1,5 +1,6 @@
 <script>
 	export let name;
+	import Header from "./UI/Header.svelte";
 </script>
 
 <style>
@@ -8,4 +9,5 @@
 	}
 </style>
 
-<h1>Hello {name}!</h1>
+<Header/>
+<h1>Hello 1 {name}!</h1>
