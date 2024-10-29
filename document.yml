@@ -1,0 +1,21 @@
+- What is Svelte:
+  is JS component framework 
+  unlike React and Vue, Svelte does not use a virtual DOM
+  its compiles code into tiny, pure Vanilla JS
+  -> the code works much faster from the beginning make a lighter and more user-friendly
+- About SvelteKit:
+  Svelte is a component framework
+  SvelteKit is an app framework that solve the tricky problem of building something production-ready
+  SvelteKit provide features such as:
+    Routing, Server-side rendering, Data fetching, Optimized production builds, App deployment
+
+    
+
+- How Svelte work:
+  your code -> Svelte (compile code, ship) > Browser
+  package.json : dependencies, svelte:3.0.0
+  rollup: js code
+  src: code > main.js > import App from App.svelte
+
+
+- Set up: Material icon + Svelte
