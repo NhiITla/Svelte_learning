@@ -6,6 +6,11 @@ https://svelte.dev/docs/kit/auth
   npm install
   npm run dev
 
+- VS Code format on Save: 
+  Ctrl + , -> formatting -> format on Save
+- INSTALL:  
+            - Material icon + Svelte
+            - node js
 - What is Svelte:
   is JS component framework 
   unlike React and Vue, Svelte does not use a virtual DOM
@@ -27,9 +32,6 @@ https://svelte.dev/docs/kit/auth
 - COMMAND:
   npm install
   npm run dev
-- INSTALL:  
-            - Material icon + Svelte
-            - node js
 - Ignore node_modules:
   - create 
 - Different way to add component:
