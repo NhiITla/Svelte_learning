@@ -13,6 +13,7 @@
     <header>
         <h1>{title}</h1>
         <h2>{sub}</h2>
+        <h2>{des}</h2>
     </header>
     <div class="image">
         <img src="{imageUrl}" alt="{title}">
