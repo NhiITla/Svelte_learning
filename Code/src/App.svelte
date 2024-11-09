@@ -2,6 +2,7 @@
 import Header from "./UI/Header.svelte";
 // import MeetupsItem from "./Meetups/MeetupsItem.svelte";
 import MeetupGrid from "./Meetups/MeetupGrid.svelte";
+import TextInput from "./UI/TextInput.svelte";
 
 let title = '';
 let sub = '';
@@ -28,7 +29,7 @@ let meetups = [{
 ]
 
 function addMeetup() {
-    let newMeetup={
+    let newMeetup = {
         id: Math.random().toString(),
         title: title,
         sub: sub,
@@ -37,7 +38,7 @@ function addMeetup() {
     };
 
     // meetups.push(newMeetup) //DOES NOT WORK -> not update the dom , not work for svelte -> use js
-    meetups=[...meetups, newMeetup];
+    meetups = [...meetups, newMeetup];
 }
 </script>
 
@@ -45,28 +46,43 @@ function addMeetup() {
 main {
     margin-top: 5rem;
 }
+
+form {
+    width: 30rem;
+    max-width: 90%;
+    margin: auto;
+}
 </style>
 
 <Header/>
     <main>
         <form on:submit|preventDefault="{addMeetup}">
-            <div class="form-control">
-                <label for="title">Title</label>
-                <input type="text" id="title" bind:value={title}/>
-            </div>
-            <div class="form-control">
-                <label for="sub">Sub</label>
-                <input type="text" id="sub" bind:value={sub}/>
-            </div>
-            <div class="form-control">
-                <label for="imageUrl">Image URL</label>
-                <input type="text" id="imageUrl" bind:value={imageUrl}/>
-            </div>
-            <div class="form-control">
-                <label for="des">Description</label>
-                <textarea rows="3" id="des" bind:value={des}/>
-                    </div>
-                    <button>Submit</button>
-                    </form>
-                    <MeetupGrid meetups={meetups}/>
-                        </main>
+            <TextInput
+                id="title"
+                label="Title"
+                type = "Text"
+                value={title}
+                on:input={event =>(title = event.target.value)} />
+            <TextInput
+                id="sub"
+                label="Sub"
+                type = "Text"
+                value={sub}
+                on:input={event =>(sub = event.target.value)} />
+            <TextInput
+                id="imageUrl"
+                label="Image Url"
+                type = "Text"
+                value={imageUrl}
+                on:input={event =>(imageUrl = event.target.value)} />
+            <TextInput
+                id="des"
+                label="Description"
+                controlType = "textarea"
+                value={des}
+                on:input={event =>(des = event.target.value)} />
+
+            <button>Submit</button>
+        </form>
+        <MeetupGrid meetups={meetups}/>
+            </main>
