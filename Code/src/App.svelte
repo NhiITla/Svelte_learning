@@ -3,6 +3,7 @@ import Header from "./UI/Header.svelte";
 // import MeetupsItem from "./Meetups/MeetupsItem.svelte";
 import MeetupGrid from "./Meetups/MeetupGrid.svelte";
 import TextInput from "./UI/TextInput.svelte";
+import Button from "./UI/Button.svelte";
 
 let title = '';
 let sub = '';
@@ -82,7 +83,7 @@ form {
                 value={des}
                 on:input={event =>(des = event.target.value)} />
 
-            <button>Submit</button>
-        </form>
-        <MeetupGrid meetups={meetups}/>
-            </main>
+            <Button type="submit" caption="Save"/>
+                </form>
+                <MeetupGrid meetups={meetups}/>
+                    </main>

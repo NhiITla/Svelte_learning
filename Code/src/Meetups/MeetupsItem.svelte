@@ -1,14 +1,15 @@
 <script>
-    export let title; //export set data from our site
-    export let sub;
-    export let des;
-    export let imageUrl;
-
-
+import Button from "../UI/Button.svelte";
+export let title; //export set data from our site
+export let sub;
+export let des;
+export let imageUrl;
 </script>
+
 <style>
 
 </style>
+
 <article>
     <header>
         <h1>{title}</h1>
@@ -22,7 +23,8 @@
         <p></p>
     </div>
     <footer>
-        <button>SHOW DETAILS</button>
-        <button>Favorite</button>
-    </footer>
-</article>
+        <Button href="mailto:{sub}" caption="Contact"/>
+            <Button type="button" caption="Show details"/>
+                <Button mode="outline" type="button" caption="Favorite"/>
+                    </footer>
+                    </article>
