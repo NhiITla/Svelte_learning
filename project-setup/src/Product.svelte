@@ -1,8 +1,16 @@
 <script>
 export let productTitle;
+import {
+    createEventDispatcher
+} from 'svelte';
+const dispatch = createEventDispatcher();
+function addtoCart(){
+    dispatch('add-to-cart',{id:"p1"});
+}
 </script>
+
 <article>
     <h1>{productTitle}</h1>
-    <button on:click>Add to Cart because on:click so event will handle on App component</button>
-    <button>Delete</button>
+    <button on:click="{addtoCart}">Add to Cart because on:click so event will handle on App component</button>
+    <button on:click="{()=> dispatch('delete','p1')}">Delete</button>
 </article>
