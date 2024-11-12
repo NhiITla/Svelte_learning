@@ -1,5 +1,16 @@
 <script>
 import Product from "./Product.svelte";
+let products = [{
+        id: "p1",
+        title: "Book1",
+        price: 2
+    },
+    {
+        id: "p2",
+        title: "Book2",
+        price: 3
+    }
+]
 
 function addToCart(event) {
     console.log(event);
@@ -13,8 +24,11 @@ function deleteProduct(event) {
 <style>
 </style>
 
+{#each products as product}
+
 <Product
-    productTitle="A Book"
+    {...product}
     on:add-to-cart={addToCart}
     on:delete={deleteProduct}
     />
+{/each}
