@@ -1,5 +1,13 @@
 <script>
 import Product from "./Product.svelte";
+
+function addToCart(event) {
+    console.log(event);
+}
+
+function deleteProduct(event) {
+    console.log(event.detail);
+}
 </script>
 
 <style>
@@ -7,6 +15,6 @@ import Product from "./Product.svelte";
 
 <Product
     productTitle="A Book"
-    on:add-to-cart={()=>alert("Add to cart!")}
-    on:delete={()=>{alert('Delete!')}}
+    on:add-to-cart={addToCart}
+    on:delete={deleteProduct}
     />
