@@ -1,7 +1,10 @@
 <script>
-    import {createEventDispatcher} from 'svelte'
-    export let content;
-    const dispatch = createEventDispatcher();
+import {
+    createEventDispatcher
+} from 'svelte'
+export let content;
+const dispatch = createEventDispatcher();
+let agreed=false;
 </script>
 
 <style>
@@ -37,15 +40,19 @@ header {
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="backdrop" on:click="{()=> dispatch('cancel')}"/>
 
-<div class="modal">
-    {@html content}
-    <header>
-        <slot name="header"/>
-            </header>
-            <slot/> <!--default slot-->
-                <footer>
-                    <slot name="footer">
-                        <button on:click="{()=>dispatch('close')}">close</button>
-                    </slot>
-                </footer>
+    <div class="modal">
+        {@html content}
+        <header>
+            <slot name="header"/>
+                </header>
+                <div class="disclaimer">
+                    <p>Before you leave, you need to agree to our terms!</p>
+                    <button on:click="{()=>agreed=true}">Agree</button>
                 </div>
+                <slot/> <!--default slot-->
+                    <footer>
+                        <slot name="footer" didAgree={agreed}>
+                            <button on:click="{()=>dispatch('close')}" disabled={!agreed}>close</button>
+                        </slot>
+                    </footer>
+                    </div>

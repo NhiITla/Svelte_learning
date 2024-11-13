@@ -15,7 +15,7 @@ let products = [{
 ]
 
 let showModal = false;
-
+let closeable=false;
 function addToCart(event) {
     console.log(event);
 }
@@ -42,9 +42,11 @@ function deleteProduct(event) {
     <Modal content="CONTENT"
         on:cancel={()=>(showModal=false)}
         on:close ={()=>showModal=false}
+        let:didAgree={closeable} 
         >
+        <!--Use let and didAgree to pass through the data-->
         <h1 slot="header">Slot to use html inside Modal tag</h1>
         <h2>bye!</h2>
-        <button slot="footer" on:click={()=>showModal=false}>Confirm</button>
+        <button slot="footer" on:click={()=>showModal=false} disabled={!closeable}>Confirm</button>
     </Modal>
     {/if}
