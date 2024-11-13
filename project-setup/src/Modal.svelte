@@ -1,5 +1,7 @@
 <script>
-export let content;
+    import {createEventDispatcher} from 'svelte'
+    export let content;
+    const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -32,9 +34,9 @@ header {
 }
 </style>
 
-<div class="backdrop">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="backdrop" on:click="{()=> dispatch('cancel')}"/>
 
-</div>
 <div class="modal">
     {@html content}
     <header>
@@ -43,7 +45,7 @@ header {
             <slot/> <!--default slot-->
                 <footer>
                     <slot name="footer">
-                        <button>close</button>
+                        <button on:click="{()=>dispatch('close')}">close</button>
                     </slot>
                 </footer>
                 </div>

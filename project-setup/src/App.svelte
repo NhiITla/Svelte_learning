@@ -1,6 +1,7 @@
 <script>
 import Product from "./Product.svelte";
 import Modal from "./Modal.svelte";
+
 let products = [{
         id: "p1",
         title: "Book1",
@@ -12,6 +13,8 @@ let products = [{
         price: 3
     }
 ]
+
+let showModal = false;
 
 function addToCart(event) {
     console.log(event);
@@ -33,8 +36,15 @@ function deleteProduct(event) {
     on:delete={deleteProduct}
     />
     {/each}
-    <Modal content="CONTENT">
+
+    <button on:click="{()=>showModal=true}">Show Modal</button>
+    {#if showModal}
+    <Modal content="CONTENT"
+        on:cancel={()=>(showModal=false)}
+        on:close ={()=>showModal=false}
+        >
         <h1 slot="header">Slot to use html inside Modal tag</h1>
         <h2>bye!</h2>
-        <button slot="footer">Confirm</button>
+        <button slot="footer" on:click={()=>showModal=false}>Confirm</button>
     </Modal>
+    {/if}
