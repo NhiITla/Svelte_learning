@@ -16,7 +16,8 @@ let meetups = [{
         sub: "Coding Bootcamp",
         des: "in this meetup, we will have some others thing",
         imageUrl: "https://kidlingoo.com/wp-content/uploads/flowers_name_in_english-980x510.jpg.webp",
-        email: "email1@gmail.com"
+        email: "email1@gmail.com",
+        isFavorite: true
     },
     {
         id: "m2",
@@ -24,7 +25,8 @@ let meetups = [{
         sub: "Coding Bootcamp",
         des: "in this meetup, we will have some others thing",
         imageUrl: "https://dictionary.cambridge.org/images/thumb/flower_noun_002_14403.jpg?version=6.0.36",
-        email: "email2@gmail.com"
+        email: "email2@gmail.com",
+        isFavorite: false
     }
 
 ]
@@ -40,6 +42,18 @@ function addMeetup() {
 
     // meetups.push(newMeetup) //DOES NOT WORK -> not update the dom , not work for svelte -> use js
     meetups = [...meetups, newMeetup];
+}
+
+function toggleFavorite(event) {
+    const id = event.detail;
+    const updatedMeetup = {
+        ...meetups.find(m => (m.id === id))
+    };
+    updatedMeetup.isFavorite = !updatedMeetup.isFavorite;
+    const meetupIndex = meetups.findIndex(m => m.id === id);
+    const updatedMeetups = [...meetups];
+    updatedMeetups[meetupIndex] = updatedMeetup;
+    meetups = updatedMeetups;
 }
 </script>
 
@@ -85,5 +99,5 @@ form {
 
             <Button type="submit" caption="Save"/>
                 </form>
-                <MeetupGrid meetups={meetups}/>
+                <MeetupGrid meetups={meetups} on:toggle-favorite="{toggleFavorite}"/>
                     </main>

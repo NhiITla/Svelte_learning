@@ -86,5 +86,5 @@ button:disabled:active {
 {#if href}
     <a href="{href}">{caption}</a>
 {:else}
-<button class="{mode}" {type}>{caption}</button>
+<button class="{mode}" {type} on:click>{caption}</button>
 {/if}
