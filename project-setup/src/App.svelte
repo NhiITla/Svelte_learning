@@ -1,5 +1,6 @@
 <script>
 import Product from "./Product.svelte";
+import Modal from "./Modal.svelte";
 let products = [{
         id: "p1",
         title: "Book1",
@@ -31,4 +32,8 @@ function deleteProduct(event) {
     on:add-to-cart={addToCart}
     on:delete={deleteProduct}
     />
-{/each}
+    {/each}
+    <Modal content="CONTENTTT">
+        <h1>Slot to use html inside Modal tag</h1>
+        <h2>bye!</h2>
+    </Modal>
