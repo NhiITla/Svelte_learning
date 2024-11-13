@@ -33,7 +33,8 @@ function deleteProduct(event) {
     on:delete={deleteProduct}
     />
     {/each}
-    <Modal content="CONTENTTT">
-        <h1>Slot to use html inside Modal tag</h1>
+    <Modal content="CONTENT">
+        <h1 slot="header">Slot to use html inside Modal tag</h1>
         <h2>bye!</h2>
+        <button slot="footer">Confirm</button>
     </Modal>

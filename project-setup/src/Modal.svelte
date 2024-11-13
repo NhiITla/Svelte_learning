@@ -26,6 +26,10 @@ export let content;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     overflow: scroll;
 }
+
+header {
+    border-bottom: 1px solid red;
+}
 </style>
 
 <div class="backdrop">
@@ -33,6 +37,13 @@ export let content;
 </div>
 <div class="modal">
     {@html content}
-    <slot/>
-
-</div>
+    <header>
+        <slot name="header"/>
+            </header>
+            <slot/> <!--default slot-->
+                <footer>
+                    <slot name="footer">
+                        <button>close</button>
+                    </slot>
+                </footer>
+                </div>
