@@ -34,17 +34,18 @@ let meetups = [{
 
 let editMode = null;
 
-function addMeetup() {
+function addMeetup(event) {
     let newMeetup = {
         id: Math.random().toString(),
-        title: title,
-        sub: sub,
-        des: des,
-        imageUrl: imageUrl
+        title: event.detail.title,
+        sub: event.detail.sub,
+        des: event.detail.des,
+        imageUrl: event.detail.imageUrl
     };
 
     // meetups.push(newMeetup) //DOES NOT WORK -> not update the dom , not work for svelte -> use js
     meetups = [...meetups, newMeetup];
+    editMode = null;
 }
 
 function toggleFavorite(event) {
@@ -73,7 +74,7 @@ main {
             on:click="{()=>editMode='add'}"
             />
             {#if editMode==="add"}
-            <EditMeetup/>
+            <EditMeetup on:save="{addMeetup}"/>
                 {/if}
 
                 <MeetupGrid meetups={meetups} on:toggle-favorite="{toggleFavorite}"/>
