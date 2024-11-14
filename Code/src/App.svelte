@@ -70,9 +70,8 @@ main {
 <Header/>
     <main>
         <Button
-            caption="New Meetup"
             on:click="{()=>editMode='add'}"
-            />
+            >New Meetup</Button>
             {#if editMode==="add"}
             <EditMeetup on:save="{addMeetup}"/>
                 {/if}

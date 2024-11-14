@@ -21,7 +21,7 @@ const dispatch = createEventDispatcher();
 <article>
     <header>
         <h1>
-            {title} 
+            {title}
             {#if isFav}
             <Badge>FAVORITE</Badge>
             {/if}
@@ -36,13 +36,13 @@ const dispatch = createEventDispatcher();
         <p></p>
     </div>
     <footer>
-        <Button href="mailto:{sub}" caption="Contact"/>
-            <Button type="button" caption="Show details"/>
-                <Button
-                    mode="outline"
-                    color = {isFav? null :'success'}
-                    type="button"
-                    caption="{isFav ? 'UnFavorite':'Favorite'}"
-                    on:click={() => dispatch('toggle-favorite',id)}/>
-                    </footer>
-                    </article>
+        <Button href="mailto:{sub}">Contact</Button>
+        <Button type="button">Show detail</Button>
+        <Button
+            mode="outline"
+            color = {isFav? null :'success'}
+            type="button"
+            on:click={() => dispatch('toggle-favorite',id)}>
+            {isFav ? 'UnFavorite':'Favorite'}</Button>
+    </footer>
+</article>
