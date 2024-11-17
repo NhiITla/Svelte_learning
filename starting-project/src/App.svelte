@@ -9,12 +9,15 @@ let favColor = 'red';
 let singleFavColor='red';
 let usernameInput='';
 let someDiv='';
+let customInput='';
 
 $: console.log(val);
 $: console.log(selectedOption);
 $: console.log(agreed);
 $: console.log(favColor);
 $: console.log(singleFavColor);
+$: console.log(customInput);
+
 
 function setValue(event) {
     val = event.target.value
@@ -24,13 +27,14 @@ function saveData(){
 	console.log(usernameInput.value);
 	console.dir(usernameInput)
 	console.dir(someDiv)
+	customInput.empty();
 	// console.log(document.querySelector('#username').value);
 }
 </script>
 
 <!-- <input type="text" value={val} on:input={setValue}> -->
 <!-- <input type="text" bind:value={val}> -->
-<CustomInput bind:val={val}/>
+<CustomInput bind:val={val} bind:this={customInput}/>
     <Toggle bind:chosenOption={selectedOption}></Toggle>
     <input
         type="number"
