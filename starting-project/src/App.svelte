@@ -7,6 +7,8 @@ let price = 0;
 let agreed;
 let favColor = 'red';
 let singleFavColor='red';
+let usernameInput='';
+let someDiv='';
 
 $: console.log(val);
 $: console.log(selectedOption);
@@ -16,6 +18,13 @@ $: console.log(singleFavColor);
 
 function setValue(event) {
     val = event.target.value
+}
+
+function saveData(){
+	console.log(usernameInput.value);
+	console.dir(usernameInput)
+	console.dir(someDiv)
+	// console.log(document.querySelector('#username').value);
 }
 </script>
 
@@ -51,3 +60,8 @@ function setValue(event) {
 		<option value="green">Green</option>
 		<option value="red">Red</option>
 	</select>
+
+	<input 
+	type="text" id="username" bind:this={usernameInput}>
+	<button on:click={saveData}>Save</button>
+	<div bind:this={someDiv}></div>
