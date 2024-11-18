@@ -13,3 +13,8 @@ package.json > script
 ---
 
 validate.js.org page
+---- format for prettier .prettierrc
+{
+"svelteSortOrder": "scripts-styles-markup",
+"svelteStrictMode": true
+}

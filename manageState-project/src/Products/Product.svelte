@@ -1,6 +1,6 @@
 <script>
+  import cartItems from "../Cart/cart-store";
   import Button from "../UI/Button.svelte";
-
   export let id;
   export let title;
   export let price;
@@ -8,7 +8,19 @@
 
   function addToCart() {
     // Now what?
-    console.log(id);
+    // console.log(id);
+    // cartItems.set([]);
+    // ... => means copy
+    cartItems.update((items) => {
+      return [
+        ...items,
+        {
+          id: id,
+          title: title,
+          price: price,
+        },
+      ];
+    });
   }
 </script>
 
@@ -47,6 +59,6 @@
     <p>{description}</p>
   </div>
   <div>
-    <Button on:click={addToCart}>Add to Cart</Button>
+    <Button on:click="{addToCart}">Add to Cart</Button>
   </div>
 </div>
