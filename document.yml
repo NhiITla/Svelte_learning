@@ -1,7 +1,7 @@
 https://svelte.dev/docs/kit/auth
 
 - Creating your first Svelte app:
-  npm create svelte@latest myapp
+  npm create svelte@latest myapp,
   cd myapp
   npm install
   npm run dev
